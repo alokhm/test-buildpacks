@@ -22,16 +22,16 @@ fi
 
 
 # getting dependency of apache2
-sudo apt-get build-dep apache2
+#sudo apt-get build-dep apache2
 
 # download the apache
-sudo wget http://www.webhostingjams.com/mirror/apache//httpd/httpd-$apache_version.tar.gz
-
+#sudo wget http://www.webhostingjams.com/mirror/apache//httpd/httpd-$apache_version.tar.gz
+curl http://www.webhostingjams.com/mirror/apache//httpd/httpd-$apache_version.tar.gz
 # untar
 tar -xf httpd-$apache_version.tar.gz
 
 #login as Root
-su
+#su
 source /etc/profile
 
 # get inside
@@ -58,8 +58,9 @@ cd httpd-{$apache_version}
 make 
 
 #install 
-sudo make install
-
+#sudo make install
+make install
 # copy project index file into htdocs location
 
-sudo cp $COMPLETE_DIR_PATH/index.html /usr/local/apache2/htdocs
+#sudo cp $COMPLETE_DIR_PATH/index.html /usr/local/apache2/htdocs
+cp $COMPLETE_DIR_PATH/index.html /usr/local/apache2/htdocs
